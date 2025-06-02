@@ -1,11 +1,7 @@
 import RPi.GPIO as GPIO
-
-GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.IN)  # PIR sensor
-GPIO.setup(3, GPIO.OUT)  # LED/Buzzer
-
-GPIO.output(3, GPIO.LOW)
+GPIO.setup(11, GPIO.IN)
+GPIO.setup(3, GPIO.OUT)
 
 while True:
     if GPIO.input(11):
@@ -13,4 +9,4 @@ while True:
         print("Intruder Detected!!")
     else:
         GPIO.output(3, GPIO.LOW)
-        print("NO Intruder")
+        print("No Intruder")
